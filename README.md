@@ -1,4 +1,4 @@
-# Jane Doe — Portfolio
+# Gayathri Jayaprakash — Portfolio
 
 Terminal-rot themed portfolio. Flask backend, plain HTML/CSS/JS frontend.
 
