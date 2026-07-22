@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Gayathri Jayaprakash{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="terminal">
+
+<div id="cur-dot"></div>
+<div id="cur-label"></div>
+<div id="scanlines"></div>
+<div id="datastream"><div id="datastream-inner"></div></div>
+
+<div id="stats-panel">
+  <span><span class="dot-blink"></span>STATUS: AVAILABLE</span>
+  <span id="uptime">UPTIME: 00:00:00</span>
+</div>
+<div id="sec-counter">01 / 01</div>
+
+<div id="cmdk" class="hidden">
+  <div class="cmdk-box">
+    <input id="cmdk-input" placeholder="type a command... (work, about, contact)" autocomplete="off">
+    <div id="cmdk-results"></div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="logo" data-cursor="HOME">GJ_</a>
+  <div class="links">
+    <a href="/#about" data-cursor="GO">ABOUT</a>
+    <a href="/work" data-cursor="GO">WORK</a>
+    <a href="/#contact" data-cursor="GO">CONTACT</a>
+    <button id="mode-toggle" aria-label="Toggle clean mode" data-cursor="SWITCH">
+      <span class="track"><span class="knob"></span></span>
+      <span class="mode-label">TERMINAL</span>
+    </button>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer>
+  <span>&copy; 2026 GAYATHRI JAYAPRAKASH</span>
+  <div class="footer-links">
+    <a href="https://github.com" target="_blank">GITHUB</a>
+    <a href="#">LINKEDIN</a>
+    <a href="#">EMAIL</a>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

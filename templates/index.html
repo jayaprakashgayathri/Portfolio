@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="boot">
+  <pre id="boot-text"></pre>
+</div>
+
+<section class="hero">
+  <canvas id="particles"></canvas>
+  <span class="eyebrow">PORTFOLIO // 2026</span>
+  <h1 id="hero-name" class="hide-until-boot">GAYATHRI<br><span class="pop">JAYAPRAKASH</span></h1>
+  <p class="sub hide-until-boot">UI/UX design, data analytics, and visual systems &mdash; replace with your real tagline.</p>
+  <div class="cta-row hide-until-boot">
+    <a class="btn btn-fill" href="/work" data-cursor="GO">VIEW WORK</a>
+    <a class="btn btn-outline" href="https://github.com" target="_blank" data-cursor="OPEN">&gt; GITHUB</a>
+  </div>
+</section>
+
+<section class="teaser">
+  <div class="section-head">
+    <h2>Selected work</h2>
+    <span class="count">{{ projects|length }} PROJECTS</span>
+  </div>
+  <div class="proj-list">
+    {% for slug, p in projects.items() %}
+    <a class="proj-row" href="/project/{{ slug }}" data-desc="{{ p.tagline }}" data-cursor="VIEW">
+      <span class="proj-num">{{ '%02d'|format(loop.index) }}</span>
+      <div class="proj-info">
+        <h3>{{ p.title }}</h3>
+        <span class="proj-cat">{{ p.category|upper }} &mdash; {{ p.year }}</span>
+        <p class="desc-reveal"></p>
+      </div>
+      <div class="proj-preview img-placeholder">[{{ p.hero_placeholder }}]<div class="sweep"></div></div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="section-head">
+    <h2>About</h2>
+    <span class="count">QUALIFICATIONS</span>
+  </div>
+  <p class="sub">Replace this with your real bio &mdash; degree, focus areas, tools, and the kind of problems you like solving.</p>
+</section>
+
+
+
+{% endblock %}

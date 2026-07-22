@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="teaser" style="padding-top:140px;">
+  <div class="section-head">
+    <h2>All work</h2>
+    <span class="count">{{ projects|length }} PROJECTS</span>
+  </div>
+  <div class="gallery">
+    {% for slug, p in projects.items() %}
+    <a class="gallery-card" href="/project/{{ slug }}" data-cursor="VIEW">
+      <span class="gallery-index">{{ '%02d'|format(loop.index) }} / {{ '%02d'|format(projects|length) }}</span>
+      <div class="gallery-frame img-placeholder">
+        [{{ p.hero_placeholder }}]
+        <div class="sweep"></div>
+      </div>
+      <div class="gallery-meta">
+        <h3 class="gallery-title">{{ p.title }}</h3>
+        <span class="proj-cat">{{ p.category|upper }} &mdash; {{ p.year }}</span>
+        <p class="gallery-summary">{{ p.tagline }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

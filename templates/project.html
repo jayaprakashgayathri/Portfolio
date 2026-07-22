@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="project-hero">
+  <span class="eyebrow">{{ p.category|upper }} // {{ p.year }}</span>
+  <h1>{{ p.title }}</h1>
+  <div class="img-placeholder large">[{{ p.hero_placeholder }}]</div>
+</section>
+
+<section class="case">
+  <div class="case-block">
+    <span class="case-label">PROBLEM</span>
+    <p>{{ p.problem }}</p>
+  </div>
+  <div class="case-block">
+    <span class="case-label">APPROACH</span>
+    <p>{{ p.approach }}</p>
+    <div class="img-placeholder">[PLACEHOLDER: {{ slug }}-process.jpg]</div>
+  </div>
+  <div class="case-block">
+    <span class="case-label">RESULT</span>
+    <p>{{ p.result }}</p>
+  </div>
+</section>
+
+<a class="next-project" href="/project/{{ next_slug }}">
+  <span class="case-label">NEXT PROJECT</span>
+  <h3>{{ next_title }} &rarr;</h3>
+</a>
+
+{% endblock %}
